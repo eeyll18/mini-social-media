@@ -1,11 +1,11 @@
 "use client";
 
-import { updatePost, Post } from "@/lib/api"; // Post interface'ini import edin
+import { updatePost, Post } from "@/lib/api"; 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react"; // Form state'i için useState
+import React, { useState } from "react"; 
 
 interface EditFormClientProps {
-  post: Post; // Mevcut post verisini prop olarak alacak
+  post: Post;
 }
 
 export default function EditFormClient({ post }: EditFormClientProps) {
@@ -23,10 +23,10 @@ export default function EditFormClient({ post }: EditFormClientProps) {
     }
 
     try {
-      await updatePost(post.postId, { title, content }); // post.id burada kesinlikle string
+      await updatePost(post.postId, { title, content }); 
       alert("Post başarıyla güncellendi.");
-      router.push(`/posts/${post.postId}`); // Güncellenen postun detay sayfasına yönlendir
-      router.refresh(); // Detay sayfasındaki veriyi yenilemek için
+      router.push(`/posts/${post.postId}`); 
+      router.refresh(); 
     } catch (error) {
       console.error("Post güncellenirken hata:", error);
       alert("Post güncellenemedi. Lütfen tekrar deneyin.");
@@ -44,10 +44,9 @@ export default function EditFormClient({ post }: EditFormClientProps) {
           <input
             id="title"
             name="title"
-            defaultValue={post.title} // Server'dan gelen ilk değer
+            defaultValue={post.title} 
             className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
             required
-            // value={title} onChange={(e) => setTitle(e.target.value)} // Controlled component için
           />
         </div>
         <div>
@@ -57,10 +56,9 @@ export default function EditFormClient({ post }: EditFormClientProps) {
           <textarea
             id="content"
             name="content"
-            defaultValue={post.content} // Server'dan gelen ilk değer
+            defaultValue={post.content} 
             className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 h-32"
             required
-            // value={content} onChange={(e) => setContent(e.target.value)} // Controlled component için
           />
         </div>
         <button
