@@ -14,7 +14,7 @@ export default function PostDetailClient({ post }: PostDetailClientProps) {
   const handleDelete = async () => {
     if (confirm("Bu postu silmek istediğinizden emin misiniz?")) {
       try {
-        const success = await deletePost(post.id); 
+        const success = await deletePost(post.postId); 
         if (success) {
           alert("Post başarıyla silindi.");
           router.push("/");
@@ -36,7 +36,7 @@ export default function PostDetailClient({ post }: PostDetailClientProps) {
       <p className="text-gray-600 mb-4">Author: {post.author}</p>
       <div className="mt-6 space-x-2">
         <Link
-          href={`/posts/${post.id}/edit`}
+          href={`/posts/${post.postId}/edit`}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
         >
           Edit

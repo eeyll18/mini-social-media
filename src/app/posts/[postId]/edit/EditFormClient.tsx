@@ -23,9 +23,9 @@ export default function EditFormClient({ post }: EditFormClientProps) {
     }
 
     try {
-      await updatePost(post.id, { title, content }); // post.id burada kesinlikle string
+      await updatePost(post.postId, { title, content }); // post.id burada kesinlikle string
       alert("Post başarıyla güncellendi.");
-      router.push(`/posts/${post.id}`); // Güncellenen postun detay sayfasına yönlendir
+      router.push(`/posts/${post.postId}`); // Güncellenen postun detay sayfasına yönlendir
       router.refresh(); // Detay sayfasındaki veriyi yenilemek için
     } catch (error) {
       console.error("Post güncellenirken hata:", error);
