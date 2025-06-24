@@ -1,7 +1,9 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import Navbar from "./common/Navbar";
+import LoginPage from "@/app/login/page";
 
 interface HomeClientWrapperProps {
   children: React.ReactNode;
@@ -14,32 +16,32 @@ export default function HomeClientWrapper({
 
   if (!session) {
     return (
-      <div className="p-8">
-        <a href="/login" className="text-blue-500">
-          Please Login
-        </a>
-      </div>
+      <>
+        <nav className="bg-gradient-to-r to-sky-500 from-sky-600 text-white p-2 shadow-md fixed top-0 left-0 right-0 z-50">
+          <div className="container mx-auto flex flex-wrap justify-between items-center">
+            <Link href="/" className="text-xl font-bold ">
+              MiniSocial
+            </Link>
+            <Link href="/login" className="hover:text-blue-200">
+              Register
+            </Link>
+          </div>
+        </nav>
+        <LoginPage />
+      </>
     );
   }
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl">Welcome, {session.user?.name}</h1>
-        <button
-          onClick={() => signOut()}
-          className="bg-red-500 text-white px-4 py-2 rounded"
-        >
-          Logout
-        </button>
-      </div>
+    <div className="">
+      <Navbar />
 
-      <Link
+      {/* <Link
         href="/posts/create"
         className="text-blue-500 underline mb-6 inline-block"
       >
         Create New Post
-      </Link>
+      </Link> */}
 
       {children}
     </div>
