@@ -1,10 +1,14 @@
+import Navbar from "@/components/common/Navbar";
 import HomeClientWrapper from "@/components/HomeClientWrapper";
-import PostsListServer from "@/components/PostsListServer";
+import { getPosts, Post } from "@/lib/api";
 
 export default async function HomePage() {
+  const initialPosts: Post[] = await getPosts();
+
   return (
-    <HomeClientWrapper>
-      <PostsListServer />
-    </HomeClientWrapper>
+    <>
+      <Navbar />
+      <HomeClientWrapper initialPosts={initialPosts} />
+    </>
   );
 }

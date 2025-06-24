@@ -8,7 +8,7 @@ export default function Navbar() {
 
   if (!session) {
     return (
-      <nav className="bg-gradient-to-r to-sky-500 from-sky-600 text-white p-2 shadow-md fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-gradient-to-r to-sky-500 from-sky-600 text-white p-3 shadow-md fixed top-0 left-0 right-0 z-50">
         <div className="container mx-auto flex flex-wrap justify-between items-center">
           <Link href="/" className="text-xl font-bold ">
             MiniSocial
@@ -23,7 +23,7 @@ export default function Navbar() {
   const userId = session.user?.name; 
 
   return (
-    <nav className="bg-gradient-to-r to-sky-500 from-sky-600 text-white p-2 shadow-md fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-gradient-to-r to-sky-500 from-sky-600 text-white p-3 shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <Link href="/" className="text-xl font-bold ">
           MiniSocial
