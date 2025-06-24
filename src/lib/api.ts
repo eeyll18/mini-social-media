@@ -44,7 +44,7 @@ export async function getPostById(id: string): Promise<Post | null> {
   }
 }
 
-export async function createPost(postData: Omit<Post, "id" | "createdAt">) {
+export async function createPost(postData: Omit<Post, "postId" | "createdAt">) {
   try {
     const response = await fetch(BASE_URL, {
       method: "POST",
@@ -63,7 +63,7 @@ export async function createPost(postData: Omit<Post, "id" | "createdAt">) {
 
 export async function updatePost(
   id: string,
-  postData: Partial<Omit<Post, "id" | "createdAt">>
+  postData: Partial<Omit<Post, "postId" | "createdAt">>
 ): Promise<Post | null> {
   try {
     const response = await fetch(`${BASE_URL}/${id}`, {
